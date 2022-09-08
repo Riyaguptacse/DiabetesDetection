@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta chartset="UTF-8">
+        <title>Main Page</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/homestyle.css')}}">
+    </head>
+    <body>
+        <div class="main">
+            <form class="f1" action="{{url_for('predict')}}" method="POST">
+                <h1>Diabetes Detection</h1>
+                <div class="input-group">
+                    <input type="number" id="age" name="age"required>
+                    <lable for="age" class="l1">Age</lable>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="BMI" name="BMI" required>
+                    <lable for="BMI" class="l1">BMI</lable>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="Fasting" name="Fasting" required>
+                    <lable for="Fasting" class="l1">Fasting blood Suger</lable>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="A1C" name="A1C" required>
+                    <lable for="A1C"class="l1">A1C</lable>
+                </div>
+                <button type="submit" value="submit">PREDICT</button>
+            </form>
+        <div class="result">
+            <h2>Diabetes Detection Result</h2>
+            Logistic Regression Result:{{lr_pred_text}}
+            <br>
+            <br>
+            KNN Result: {{knn_pred_text}}
+            <br>
+            <br>
+            Naive Byes Result: {{gnb_pred_text}}
+            <br>
+            <br>
+            Final Outcome:{{pred_text}}
+        </div>
+        </div>
+    </body>
+</html>
